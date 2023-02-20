@@ -22,4 +22,5 @@ phases:
       - echo Pushed image to repo
 
 artifacts: 
-  files: imagedefinitions.json
+  files: 
+    - imagedefinitions.json
