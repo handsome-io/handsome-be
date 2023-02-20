@@ -1,0 +1,26 @@
+version: 0.2 
+
+phases: 
+  install: 
+    runtime-versions:
+      docker: 18
+      java: latest
+  pre_build:
+    commands: 
+      - echo Installing dependencies
+      - echo logging into ECR repo 
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 436580832640.dkr.ecr.us-east-1.amazonaws.com
+  build: 
+    commands: 
+      - echo Testing
+      - ./gradlew bootJar 
+      - docker buildx build --no-cache -t handsome-be --platform=linux/amd64 .
+      - docker tag handsome-be:latest 436580832640.dkr.ecr.us-east-1.amazonaws.com/handsome-be:latest
+  post_build:
+    commands: 
+      - echo Pushing the docker image
+      - docker push 436580832640.dkr.ecr.us-east-1.amazonaws.com/handsome-be:latest
+      - echo Pushed image to repo
+
+artifacts: 
+  files: imagedefinitions.json
