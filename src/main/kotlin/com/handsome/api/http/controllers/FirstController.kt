@@ -9,7 +9,7 @@ class FirstController {
     fun getHelloWorld() = "second version of API........"
 
     @GetMapping("/api-v3")
-    fun getHelloWorld() = "third version of API........"
+    fun getHelloWorldTwo() = "third version of API........"
 
 
 }
