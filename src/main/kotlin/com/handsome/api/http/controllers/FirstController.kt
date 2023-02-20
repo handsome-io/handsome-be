@@ -7,4 +7,9 @@ import org.springframework.web.bind.annotation.RestController
 class FirstController {
     @GetMapping("/api-v2")
     fun getHelloWorld() = "second version of API........"
+
+    @GetMapping("/api-v3")
+    fun getHelloWorld() = "third version of API........"
+
+
 }
