@@ -20,7 +20,7 @@ phases:
       - echo Pushing the docker image
       - docker push 436580832640.dkr.ecr.us-east-1.amazonaws.com/handsome-be:latest
       - echo Pushed image to repo
-      - print '[{"name":"handsome-be","imageUri":"436580832640.dkr.ecr.us-east-1.amazonaws.com/handsome-be:latest"}]' > imagedefinitions.json
+      - echo '[{"name":"handsome-be","imageUri":"436580832640.dkr.ecr.us-east-1.amazonaws.com/handsome-be:latest"}]' > imagedefinitions.json
 
 artifacts: 
   files: imagedefinitions.json
